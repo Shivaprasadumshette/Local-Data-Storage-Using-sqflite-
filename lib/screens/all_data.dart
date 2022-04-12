@@ -5,6 +5,7 @@ import 'package:assignment_6/helpers/sql_helper.dart';
 import 'package:assignment_6/model/user_model.dart';
 import 'package:assignment_6/screens/login_screens.dart';
 import 'package:assignment_6/widget/update_info.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AllData extends StatefulWidget {
@@ -70,18 +71,18 @@ class _AllDataState extends State<AllData> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => LoginScreens(),
             ),
           );
         },
-        backgroundColor: kRedColor,
+        backgroundColor: Colors.blue,
         child: Icon(Icons.add),
       ),
       appBar: AppBar(
-        backgroundColor: kRedColor,
+        backgroundColor: Colors.blue,
         title: Text(
           "All Users",
           style: TextStyle(
@@ -90,15 +91,15 @@ class _AllDataState extends State<AllData> {
           ),
         ),
       ),
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       body: Container(
         height: size.height,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/back.png'),
-            fit: BoxFit.fill,
-          ),
-        ),
+        // decoration: BoxDecoration(
+        //   image: DecorationImage(
+        //     image: AssetImage('assets/back.png'),
+        //     fit: BoxFit.fill,
+        //   ),
+        // ),
         child: _isLoading
             ? CircularProgressIndicator(color: kRedColor)
             : ListView.builder(
@@ -139,13 +140,13 @@ class _AllDataState extends State<AllData> {
                               },
                               child: Icon(
                                 Icons.edit,
-                                color: kSkyBlueShade,
+                                color: Colors.blue,
                                 size: 30,
                               ),
                             ),
                             leading: Icon(
                               Icons.person,
-                              color: kSkyBlueShade,
+                              color: Colors.blue,
                               size: 35,
                             ),
                             onLongPress: () {
@@ -157,7 +158,7 @@ class _AllDataState extends State<AllData> {
                                 Text(
                                   UserModel.allUsers[index]['username'],
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     fontSize: 22,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -167,7 +168,7 @@ class _AllDataState extends State<AllData> {
                             subtitle: Text(
                               " ${UserModel.allUsers[index]['password']}",
                               style: TextStyle(
-                                color: Colors.white,
+                                color: Colors.black,
                                 fontSize: 16,
                               ),
                             ),

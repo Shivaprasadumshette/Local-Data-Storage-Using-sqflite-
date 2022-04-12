@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 const kSkyBlueShade = Color(0xff60EEFB);
-const kPinkShade = Color(0xffE8547C);
+
+const kPinkShade = Color(0xff0000AA);
 const kBlueShade = Color(0xff121322);
-const kRedColor = Color(0xffE02648);
+const kRedColor = Color(0x2596BE);
 
 const kTextFormFieldAuthDec = InputDecoration(
   border: InputBorder.none,

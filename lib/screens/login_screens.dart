@@ -49,41 +49,53 @@ class _LoginScreensState extends State<LoginScreens> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      appBar: AppBar(
+        title: Center(child: Text('Assignment 6')),
+      ),
+      backgroundColor: Colors.white,
       body: ModalProgressHUD(
         color: Colors.black,
         inAsyncCall: _isLoading,
         progressIndicator: CircularProgressIndicator(color: kRedColor),
         child: Container(
+
           height: size.height,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/back.png'),
-              fit: BoxFit.fill,
-            ),
-          ),
+          // decoration: BoxDecoration(
+          //   image: DecorationImage(
+          //     image: AssetImage('assets/back.png'),
+          //     fit: BoxFit.fill,
+          //   ),
+          // ),
+          // Container(
+          //     alignment: Alignment.center,
+          //     padding: const EdgeInsets.all(10),
+          //     child: const Text(
+          //       '2020BTEIT00042',
+          //       style: TextStyle(
+          //           color: Colors.blue,
+          //           fontWeight: FontWeight.w500,
+          //           fontSize: 30),
+          //     )),
           child: SingleChildScrollView(
             child: Center(
               child: Column(
                 children: [
-                  SizedBox(height: 364 / 3),
-                  SizedBox(
-                    height: 120,
-                    child: Image(
-                      image: AssetImage("assets/database.png"),
-                      width: 120,
-                      color: kRedColor,
-                    ),
-                  ),
                   SizedBox(height: 35 / 3),
                   Text(
-                    'Sqflite App',
+                    '2020BTEIT00042',
                     style: TextStyle(
-                      color: kRedColor,
-                      fontSize: 45,
+                      color: Colors.blue,
+                      fontSize: 40,
                     ),
                   ),
-                  SizedBox(height: 223 / 3),
+                  SizedBox(height: 22 / 3),
+                  Text(
+                    'Sign in',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                    ),
+                  ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 105 / 3),
                     child: Form(
@@ -93,11 +105,12 @@ class _LoginScreensState extends State<LoginScreens> {
                           MyTextInput(
                             icon: Icons.person,
                             hintText: 'Username',
+
                             controller: _usernameController,
                             validator: userNameValidator,
                             textInputAction: TextInputAction.next,
                           ),
-                          SizedBox(height: 45.6 / 3),
+                          SizedBox(height: 10 ),
                           MyTextInput(
                             hintText: "Password",
                             icon: Icons.lock_rounded,
@@ -105,7 +118,7 @@ class _LoginScreensState extends State<LoginScreens> {
                             validator: passwordRequireValidator,
                             textInputAction: TextInputAction.done,
                           ),
-                          SizedBox(height: 60),
+                          SizedBox(height: 30),
                           InkWell(
                             onTap: () async {
                               if (_formFieldKey.currentState!.validate()) {
@@ -118,7 +131,7 @@ class _LoginScreensState extends State<LoginScreens> {
                                 setState(() {
                                   _isLoading = false;
                                 });
-                                Navigator.pushReplacement(
+                                Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => AllData(),
@@ -138,38 +151,139 @@ class _LoginScreensState extends State<LoginScreens> {
                                 );
                               }
                             },
-                            child: MyButton(text: "Login"),
+                             child: MyButton(text: "Login"),
+                              //
+                              // child: Container(
+                              //     height: 50,
+                              //     padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                              //     child: ElevatedButton(
+                              //       child: const Text('login'),
+                              //       // onPressed: () {
+                              //       //   // print(nameController.text);
+                              //       //   // print(passwordController.text);
+                              //       // },
+                              //       onPressed: () {
+                              //         Navigator.pushReplacement(
+                              //           context,
+                              //           MaterialPageRoute(
+                              //             builder: (context) => AllData(),
+                              //           ),
+                              //         );
+                              //       },
+                              //     )
+                              // ),
+                            ),
+
+                          // Row(
+                          //   children: [
+                          // SizedBox(height: 112.7 / 3),
+                          // MyButton(text: "Create"),
+                          // SizedBox(height: 112.7 / 3),
+                          // MyButton(text: "Delete"),
+                          //   ],
+                          // ),
+                          SizedBox(height: 30),
+                          Row(
+                            children: [
+
+                              Expanded(
+                                child: Container(
+
+                                    height: 50,
+                                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                    child: ElevatedButton(
+                                      child: const Text('Delete'),
+                                      onPressed: () {
+                                        Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => AllData(),
+                                          ),
+                                        );
+                                      },
+                                    )
+                                ),
+                              ),
+
+                              Expanded(
+                                child: Container(
+                                    height: 50,
+                                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                    child: ElevatedButton(
+                                      child: const Text('Create'),
+                                      // onPressed: () {
+                                      //   // print(nameController.text);
+                                      //   // print(passwordController.text);
+                                      // },
+                                      onPressed: () {
+                                        Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => AllData(),
+                                          ),
+                                        );
+                                      },
+                                    )
+                                ),
+                              ),
+                            ],
                           ),
-                          SizedBox(height: 112.7 / 3),
-                          InkWell(
-                            onTap: () {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => AllData(),
-                                ),
-                              );
-                            },
+                          SizedBox(height: 30),
+                          Row(
+                            children:[
+                          Expanded(
                             child: Container(
-                              alignment: AlignmentDirectional.center,
-                              height: 50,
-                              width: size.width * 0.5,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: kSkyBlueShade,
-                                  width: 2,
-                                ),
-                              ),
-                              child: Text(
-                                "Enter as a guest",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
+                                height: 50,
+                                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                child: ElevatedButton(
+                                  child: const Text('Update'),
+                                  // onPressed: () {
+                                  //   // print(nameController.text);
+                                  //   // print(passwordController.text);
+                                  // },
+                                  onPressed: () {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => AllData(),
+                                      ),
+                                    );
+                                  },
+                                )
                             ),
                           ),
+                    ],
+                          ),
+                          // InkWell(
+                          //   onTap: () {
+                          //     Navigator.pushReplacement(
+                          //       context,
+                          //       MaterialPageRoute(
+                          //         builder: (context) => AllData(),
+                          //       ),
+                          //     );
+                          //   },
+                          //   child: Container(
+                          //     alignment: AlignmentDirectional.center,
+                          //     height: 50,
+                          //     width: size.width * 0.5,
+                          //    // color: Colors.blue,
+                          //     decoration: BoxDecoration(
+                          //       border: Border.all(
+                          //         color: Colors.blue,
+                          //         width: 2,
+                          //       ),
+                          //     ),
+                          //     child: Text(
+                          //       "Update",
+                          //       style: TextStyle(
+                          //         color: Colors.black,
+                          //         fontSize: 22,
+                          //         fontWeight: FontWeight.bold,
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),

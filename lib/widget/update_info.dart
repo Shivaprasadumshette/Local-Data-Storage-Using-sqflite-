@@ -52,7 +52,7 @@ class _UpdateInfoBottomSheetState extends State<UpdateInfoBottomSheet> {
                   Text(
                     "Username",
                     style: TextStyle(
-                      color: kRedColor,
+                      color: Colors.blue,
                       fontSize: 22,
                       fontWeight: FontWeight.w500,
                     ),
@@ -67,7 +67,7 @@ class _UpdateInfoBottomSheetState extends State<UpdateInfoBottomSheet> {
                       keyboardType: TextInputType.name,
                       initialValue: UserModel.allUsers[widget.index]
                           ["username"],
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      style: TextStyle(color: Colors.black, fontSize: 18),
                       cursorHeight: 20,
                       cursorColor: kRedColor,
                       autofocus: true,
@@ -100,7 +100,7 @@ class _UpdateInfoBottomSheetState extends State<UpdateInfoBottomSheet> {
                       keyboardType: TextInputType.name,
                       initialValue: UserModel.allUsers[widget.index]
                           ["password"],
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      style: TextStyle(color: Colors.black, fontSize: 18),
                       cursorHeight: 20,
                       cursorColor: kRedColor,
                       autofocus: true,
@@ -147,7 +147,7 @@ class _UpdateInfoBottomSheetState extends State<UpdateInfoBottomSheet> {
                                   content: Text(
                                     'User details updated',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: Colors.white,
                                       fontSize: 18,
                                     ),
                                   ),
